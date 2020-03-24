@@ -13,7 +13,7 @@ $ composer require liaosp/ali_open -vvv
 场景： 拉取阿里巴巴商家的采购数据，同步到erp上，采用的是多用户模式
 
 ```php
-        $obj = new \Liaosp\AliOpen\AliOpen(['page'=>1]);
+        $obj = new \JavaReact\AlibabaOpen\AliOpen(['page'=>1]);
         $obj->setAppkey('你的appkey');
         $obj->setAppsecret('你的秘钥');
         $obj->setAccessToken('自己想办法去获取token，如果设置的是多用户单用户的直接复制，应用管理中的token');
@@ -30,7 +30,7 @@ $ composer require liaosp/ali_open -vvv
 namespace App\Services\AliOpen;
 
 
-class AliOpen extends \Liaosp\AliOpen\AliOpen
+class AliOpen extends \JavaReact\AlibabaOpen\AliOpen
 {
     public function __construct($params = array())
     {
