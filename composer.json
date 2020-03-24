@@ -1,7 +1,14 @@
 {
   "name": "javareact/alibaba_open",
   "description": "阿里巴巴开放平台sdk ，签名算法",
+  "type": "library",
   "license": "MIT",
+  "keywords": [
+    "阿里巴巴开放平台sdk",
+    "签名算法",
+    "ali_open",
+    "Alibaba"
+  ],
   "authors": [
     {
       "name": "javareact",
@@ -11,7 +18,7 @@
   "require": {
     "php": ">=7.1",
     "ext-curl": "*",
-      "ext-json": "*"
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "<9.0.0",

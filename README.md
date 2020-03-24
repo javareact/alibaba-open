@@ -1,12 +1,9 @@
-<h1 align="center"> 阿里巴巴开放平台SDK </h1>
-
-<p align="center"> .</p>
-
+# 阿里巴巴开放平台SDK
 
 ## Installing
 
 ```shell
-$ composer require liaosp/ali_open -vvv
+$ composer require javareact/alibaba_open -vvv
 ```
 
 ## Usage
@@ -45,7 +42,7 @@ class AliOpen extends \JavaReact\AlibabaOpen\AlibabaClient
 
 获取订单列表的例子 
 ```php
-        $get_data =( new AliOpen([     //这边的AliOpen ,是你设置appkey的对象
+        $get_data =( new  \JavaReact\AlibabaOpen\AlibabaClient([     //这边的AliOpen ,是你设置appkey的对象
             'page'=>1,
             'pageSize'=>100,
         ]))
@@ -55,7 +52,7 @@ class AliOpen extends \JavaReact\AlibabaOpen\AlibabaClient
 ```
 获取订单详情的例子 
 ```php
-        $get_data = (new AliOpen([
+        $get_data = (new  \JavaReact\AlibabaOpen\AlibabaClient([
             'webSite'=>1688,
             'orderId'=>$this->app->order_id,
         ]))

@@ -14,39 +14,66 @@ class Container implements \ArrayAccess
      * @var array
      */
     protected $middlewares = array();
-    private $instances =array();
+    /**
+     * @var array
+     */
+    private $instances = array();
+    /**
+     * @var array
+     */
     private $values = array();
+    /**
+     * @var
+     */
     public $register;
 
+    /**
+     * @param $provider
+     * @return $this
+     */
     public function serviceRegister($provider)
     {
         $provider->serviceProvider($this);
-
         return $this;
     }
 
+    /**
+     * @param mixed $offset
+     * @return bool|void
+     */
     public function offsetExists($offset)
     {
         // TODO: Implement offsetExists() method.
     }
 
+    /**
+     * @param mixed $offset
+     * @return mixed
+     */
     public function offsetGet($offset)
     {
-        if(isset($this->instances[$offset])){
+        if (isset($this->instances[$offset])) {
             return $this->instances[$offset];
         }
-        $raw = $this->values[$offset];
-        $val = $this->values[$offset] = $raw($this);
+        $raw                      = $this->values[$offset];
+        $val                      = $this->values[$offset] = $raw($this);
         $this->instances[$offset] = $val;
         return $val;
     }
 
 
+    /**
+     * @param mixed $offset
+     * @param mixed $value
+     */
     public function offsetSet($offset, $value)
     {
         $this->values[$offset] = $value;
     }
 
+    /**
+     * @param mixed $offset
+     */
     public function offsetUnset($offset)
     {
 
@@ -74,11 +101,12 @@ class Container implements \ArrayAccess
      * @param string $name
      * @return array
      */
-    public function pushMiddlewares(array $class_and_function,$name =''){
-        if(empty($this->middlewares)){
+    public function pushMiddlewares(array $class_and_function, $name = '')
+    {
+        if (empty($this->middlewares)) {
             $this->middlewares[$name] = $class_and_function;
-        }else{
-            array_push($this->middlewares,[$name=>$class_and_function]);
+        } else {
+            array_push($this->middlewares, [$name => $class_and_function]);
         }
         return $this->middlewares;
     }

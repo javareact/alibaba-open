@@ -10,16 +10,35 @@ namespace JavaReact\AlibabaOpen\core;
  */
 class BaseClient
 {
+    /**
+     * @var Container
+     */
     protected $app;
 
+    /**
+     * @var string
+     */
     public $base_url = 'http://gw.open.1688.com/openapi/';
 
+    /**
+     * @var
+     */
     public $url_info;
 
+    /**
+     * @var
+     */
     protected $postData;
 
+    /**
+     * @var
+     */
     public $res_url;
 
+    /**
+     * BaseClient constructor.
+     * @param Container $app
+     */
     public function __construct(Container $app)
     {
         $this->app = $app;
@@ -86,6 +105,11 @@ class BaseClient
     }
 
     //设置地址
+
+    /**
+     * @param $comalibabatradealibabatradegetbuyerView
+     * @return $this
+     */
     public function setApi($comalibabatradealibabatradegetbuyerView)
     {
         $this->url_info = $comalibabatradealibabatradegetbuyerView;
@@ -107,7 +131,6 @@ class BaseClient
     {
 
         $ch = curl_init();
-
         if ($method == 'get') {
             //method get
             if ((!empty($query_data))

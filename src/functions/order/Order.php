@@ -6,6 +6,10 @@ namespace JavaReact\AlibabaOpen\functions\order;
 
 use JavaReact\AlibabaOpen\core\BaseClient;
 
+/**
+ * Class Order
+ * @package JavaReact\AlibabaOpen\functions\order
+ */
 class Order extends BaseClient
 {
     /**
