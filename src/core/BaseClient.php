@@ -6,7 +6,7 @@ namespace JavaReact\AlibabaOpen\core;
 /**
  * Class BaseClient
  * @package JavaReact\AlibabaOpen\core
- * @property \JavaReact\AlibabaOpen\AliOpen app
+ * @property \JavaReact\AlibabaOpen\AlibabaClient app
  */
 class BaseClient
 {

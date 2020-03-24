@@ -11,7 +11,7 @@ use JavaReact\AlibabaOpen\provider\StoreProvider;
  * @property \JavaReact\AlibabaOpen\functions\Dining dining
  * @property \JavaReact\AlibabaOpen\functions\order\Order order
  */
-class AliOpen extends ContainerBase
+class AlibabaClient extends ContainerBase
 {
     /**
      * 服务提供者
@@ -20,7 +20,6 @@ class AliOpen extends ContainerBase
     public function __construct($params = array())
     {
 //        $this->pushMiddlewares(array(\JavaReact\AlibabaOpen\functions\Log::class,'addLog'),'log'); //更新获取access_token
-
         parent::__construct($params);
     }
 
