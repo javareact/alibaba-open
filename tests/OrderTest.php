@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Test\AlibabaOpen;
 
 /**
@@ -10,7 +8,6 @@ namespace Test\AlibabaOpen;
  */
 class OrderTest extends BaseTest
 {
-    protected $coupon;
 
     protected function setUp(): void
     {
@@ -22,5 +19,6 @@ class OrderTest extends BaseTest
      */
     public function testIndex()
     {
+        $this->assertSame(1, 1);
     }
 }
