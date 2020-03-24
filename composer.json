@@ -30,5 +30,10 @@
     "psr-4": {
       "JavaReact\\AlibabaOpen\\": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JavaReact\\AlibabaOpen\\": "tests/"
+    }
   }
 }
