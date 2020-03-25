@@ -3,28 +3,28 @@
 namespace JavaReact\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\core\ContainerBase;
-use JavaReact\AlibabaOpen\provider\DiningProvider;
 use JavaReact\AlibabaOpen\provider\StoreProvider;
 
 /**
  * Class Application
- * @property \JavaReact\AlibabaOpen\functions\Dining dining
  * @property \JavaReact\AlibabaOpen\functions\order\Order order
  */
 class AlibabaClient extends ContainerBase
 {
     /**
-     * 服务提供者
-     * @var array
+     * AlibabaClient constructor.
+     * @param array $params 应用级参数
      */
     public function __construct($params = array())
     {
-//        $this->pushMiddlewares(array(\JavaReact\AlibabaOpen\functions\Log::class,'addLog'),'log'); //更新获取access_token
         parent::__construct($params);
     }
 
+    /**
+     * 服务提供者
+     * @var array
+     */
     protected $provider = [
-        DiningProvider::class,
         StoreProvider::class,
         //...其他服务提供者
     ];

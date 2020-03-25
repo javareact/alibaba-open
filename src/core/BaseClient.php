@@ -46,6 +46,7 @@ class BaseClient
 
 
     /**
+     * 签名
      * @throws Exception
      */
     public function sign()
@@ -60,7 +61,6 @@ class BaseClient
         $version   = $arr[1];
         $apiname   = $arr[0];
         $url_info  = 'param2/' . $version . '/' . $spacename . '/' . $apiname . '/';
-
         //参数因子
         $appKey    = $this->app->appkey;
         $appSecret = $this->app->appsecret;
@@ -85,7 +85,8 @@ class BaseClient
     }
 
     /**
-     * 请求方式
+     * GET请求方式
+     * @return array
      */
     public function get()
     {
@@ -95,7 +96,8 @@ class BaseClient
     }
 
     /**
-     * 请求方式
+     * POST请求方式
+     * @throws array
      */
     public function post()
     {
@@ -103,8 +105,6 @@ class BaseClient
         $result = $this->curlRequest($this->res_url, $this->postData, 'POST');
         return json_decode($result, true);
     }
-
-    //设置地址
 
     /**
      * @param $comalibabatradealibabatradegetbuyerView

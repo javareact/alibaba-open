@@ -16,6 +16,7 @@ class StoreProvider implements Provider
 {
 
     /**
+     * 服务提供者
      * @param Container $container
      * @return mixed|void
      */
