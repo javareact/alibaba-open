@@ -1,8 +1,6 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\functions\order;
-
 
 use JavaReact\AlibabaOpen\core\BaseClient;
 
@@ -23,12 +21,12 @@ class Order extends BaseClient
     }
 
     /**
-     * 订单详情
+     * 订单详情(买家视角)
+     * @return $this
      */
     public function buyerOrderDetail()
     {
         $this->url_info = 'com.alibaba.trade:alibaba.trade.get.buyerView-1';
+        return $this;
     }
-
-
 }
