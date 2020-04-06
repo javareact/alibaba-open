@@ -107,6 +107,7 @@ class BaseClient
     }
 
     /**
+     * 设置API地址
      * @param $comalibabatradealibabatradegetbuyerView
      * @return $this
      */
@@ -173,7 +174,6 @@ class BaseClient
         $output = curl_exec($ch);
         if ($output === FALSE)
             $output = '';
-
         curl_close($ch);
         return $output;
     }
