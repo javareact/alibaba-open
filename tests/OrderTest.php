@@ -16,11 +16,13 @@ class OrderTest extends BaseTest
 
     public function testIndex()
     {
-        $obj = new \JavaReact\AlibabaOpen\AlibabaClient(['page' => 1]);
-        $obj->setAppkey('appkey');
-        $obj->setAppsecret('appsecret');
-        $obj->setAccessToken('access_token');
-        $res = $obj->order->setApi('com.alibaba.trade:alibaba.trade.getBuyerOrderList-1')->post(); //api 就是阿里巴巴文档中的
-        $this->assertContains('gw.AppKeyNotFound', $res['error_code']);
+        $obj = new \JavaReact\AlibabaOpen\AlibabaClient([
+            'productId' => '532137286888',
+        ]);
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $obj->setAccessToken(getenv('AccessToken'));
+        $res = $obj->order->setApi('com.alibaba.product:alibaba.product.follow-1')->post(); //api 就是阿里巴巴文档中的
+        $this->assertStringContainsString('gw.AppKeyNotFound', $res['error_code']);
     }
 }

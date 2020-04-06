@@ -3,11 +3,15 @@
 namespace JavaReact\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\core\ContainerBase;
+use JavaReact\AlibabaOpen\provider\ProductProvider;
 use JavaReact\AlibabaOpen\provider\StoreProvider;
 
 /**
  * Class Application
+ * @property \JavaReact\AlibabaOpen\functions\product\Product product
  * @property \JavaReact\AlibabaOpen\functions\order\Order order
+ * @property \JavaReact\AlibabaOpen\functions\order\Logistics logistics
+ * @property \JavaReact\AlibabaOpen\functions\order\Refund refund
  */
 class AlibabaClient extends ContainerBase
 {
@@ -26,6 +30,7 @@ class AlibabaClient extends ContainerBase
      */
     protected $provider = [
         StoreProvider::class,
+        ProductProvider::class,
         //...其他服务提供者
     ];
 }
