@@ -8,9 +8,10 @@ use JavaReact\AlibabaOpen\provider\StoreProvider;
 
 /**
  * Class Application
- * @property \JavaReact\AlibabaOpen\functions\order\Order order
  * @property \JavaReact\AlibabaOpen\functions\product\Product product
+ * @property \JavaReact\AlibabaOpen\functions\order\Order order
  * @property \JavaReact\AlibabaOpen\functions\order\Logistics logistics
+ * @property \JavaReact\AlibabaOpen\functions\order\Refund refund
  */
 class AlibabaClient extends ContainerBase
 {

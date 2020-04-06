@@ -1,11 +1,10 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\provider;
-
 
 use JavaReact\AlibabaOpen\core\Container;
 use JavaReact\AlibabaOpen\functions\order\Order;
+use JavaReact\AlibabaOpen\functions\order\Refund;
 use JavaReact\AlibabaOpen\interfaces\Provider;
 
 /**
@@ -22,8 +21,11 @@ class StoreProvider implements Provider
      */
     public function serviceProvider(Container $container)
     {
-        $container['order'] = function ($container) {
+        $container['order']  = function ($container) {
             return new Order($container);
+        };
+        $container['refund'] = function ($container) {
+            return new Refund($container);
         };
     }
 }
