@@ -46,8 +46,14 @@ class ContainerBase extends Container
      */
     public function __construct($params = array())
     {
-        $this->params = $params;
-
+        if ($params) {
+            foreach ($params as &$item) {
+                if (is_array($item) || is_object($item)) {
+                    $item = json_encode($item, JSON_UNESCAPED_UNICODE);
+                }
+            }
+        }
+        $this->params      = $params;
         $provider_callback = function ($provider) {
             $obj = new $provider;
             $this->serviceRegister($obj);
