@@ -4,11 +4,11 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class ReturnGoodsParams extends BaseEntityParams
 {
-    public $refundId;
-    public $logisticsCompanyNo;
-    public $freightBill;
-    public $description;
-    public $vouchers;
+    private $refundId;
+    private $logisticsCompanyNo;
+    private $freightBill;
+    private $description;
+    private $vouchers;
 
     /**
      * ReturnGoodsParams constructor.
@@ -41,6 +41,15 @@ class ReturnGoodsParams extends BaseEntityParams
     {
         $this->vouchers = $vouchers;
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

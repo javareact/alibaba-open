@@ -4,8 +4,8 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class Preview4CybMediaParams extends BaseEntityParams
 {
-    public $addressParam;
-    public $cargoParamList;
+    private $addressParam;
+    private $cargoParamList;
 
     /**
      * Preview4CybMediaParams constructor.
@@ -17,4 +17,14 @@ class Preview4CybMediaParams extends BaseEntityParams
         $this->addressParam   = $addressParam;
         $this->cargoParamList = $cargoParamList;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
+
 }

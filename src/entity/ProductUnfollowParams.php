@@ -6,16 +6,23 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class ProductUnfollowParams extends BaseEntityParams
 {
-    public $productId;
+    private $productId;
 
     /**
-     * @param mixed $productId
-     * @return ProductUnfollowParams
+     * ProductUnfollowParams constructor.
+     * @param $productId
      */
-    public function setProductId($productId)
+    public function __construct($productId)
     {
         $this->productId = $productId;
-        return $this;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 }

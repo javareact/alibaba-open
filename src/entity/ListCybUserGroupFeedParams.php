@@ -6,11 +6,23 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class ListCybUserGroupFeedParams extends BaseEntityParams
 {
-    public $groupId;
-    public $pageNo;
-    public $pageSize;
-    public $feedId;
-    public $title;
+    private $groupId;
+    private $pageNo;
+    private $pageSize;
+    private $feedId;
+    private $title;
+
+    /**
+     * ListCybUserGroupFeedParams constructor.
+     * @param $pageNo
+     * @param $pageSize
+     */
+    public function __construct($pageNo, $pageSize)
+    {
+        $this->pageNo   = $pageNo;
+        $this->pageSize = $pageSize;
+    }
+
 
     /**
      * @param mixed $groupId
@@ -19,26 +31,6 @@ class ListCybUserGroupFeedParams extends BaseEntityParams
     public function setGroupId($groupId)
     {
         $this->groupId = $groupId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $pageNo
-     * @return ListCybUserGroupFeedParams
-     */
-    public function setPageNo($pageNo)
-    {
-        $this->pageNo = $pageNo;
-        return $this;
-    }
-
-    /**
-     * @param mixed $pageSize
-     * @return ListCybUserGroupFeedParams
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->pageSize = $pageSize;
         return $this;
     }
 
@@ -60,6 +52,15 @@ class ListCybUserGroupFeedParams extends BaseEntityParams
     {
         $this->title = $title;
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

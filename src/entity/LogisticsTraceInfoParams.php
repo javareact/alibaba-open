@@ -4,11 +4,9 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class LogisticsTraceInfoParams extends BaseEntityParams
 {
-    public $logisticsId;
-
-    public $orderId;
-
-    public $webSite;
+    private $logisticsId;
+    private $orderId;
+    private $webSite;
 
     /**
      * LogisticsTraceInfoParams constructor.
@@ -30,6 +28,15 @@ class LogisticsTraceInfoParams extends BaseEntityParams
     {
         $this->logisticsId = $logisticsId;
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

@@ -6,24 +6,36 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class ListOverPricedOfferParams extends BaseEntityParams
 {
-    public $biztype;
-    public $buyerProtection;
-    public $city;
-    public $deliveryTimeType;
-    public $descendOrder;
-    public $holidayTagId;
-    public $keyWords;
-    public $page;
-    public $pageSize;
-    public $postCategoryId;
-    public $priceStart;
-    public $priceEnd;
-    public $priceFilterFields;
-    public $province;
-    public $sortType;
-    public $tags;
-    public $offerTags;
-    public $offerIds;
+    private $biztype;
+    private $buyerProtection;
+    private $city;
+    private $deliveryTimeType;
+    private $descendOrder;
+    private $holidayTagId;
+    private $keyWords;
+    private $page;
+    private $pageSize;
+    private $postCategoryId;
+    private $priceStart;
+    private $priceEnd;
+    private $priceFilterFields;
+    private $province;
+    private $sortType;
+    private $tags;
+    private $offerTags;
+    private $offerIds;
+
+    /**
+     * ListOverPricedOfferParams constructor.
+     * @param $page
+     * @param $pageSize
+     */
+    public function __construct($page, $pageSize)
+    {
+        $this->page     = $page;
+        $this->pageSize = $pageSize;
+    }
+
 
     /**
      * @param mixed $biztype
@@ -92,26 +104,6 @@ class ListOverPricedOfferParams extends BaseEntityParams
     public function setKeyWords($keyWords)
     {
         $this->keyWords = $keyWords;
-        return $this;
-    }
-
-    /**
-     * @param mixed $page
-     * @return ListOverPricedOfferParams
-     */
-    public function setPage($page)
-    {
-        $this->page = $page;
-        return $this;
-    }
-
-    /**
-     * @param mixed $pageSize
-     * @return ListOverPricedOfferParams
-     */
-    public function setPageSize($pageSize)
-    {
-        $this->pageSize = $pageSize;
         return $this;
     }
 
@@ -205,4 +197,12 @@ class ListOverPricedOfferParams extends BaseEntityParams
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 }

@@ -6,16 +6,25 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class QueryOfferDetailActivityParams extends BaseEntityParams
 {
-    public $offerId;
+    private $offerId;
 
     /**
-     * @param mixed $offerId
-     * @return QueryOfferDetailActivityParams
+     * QueryOfferDetailActivityParams constructor.
+     * @param $offerId
      */
-    public function setOfferId($offerId)
+    public function __construct($offerId)
     {
         $this->offerId = $offerId;
-        return $this;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

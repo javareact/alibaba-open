@@ -4,7 +4,7 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class ProtocolPayParams extends BaseEntityParams
 {
-    public $orderId;
+    private $orderId;
 
     /**
      * ProtocolPayParams constructor.
@@ -14,4 +14,14 @@ class ProtocolPayParams extends BaseEntityParams
     {
         $this->orderId = $orderId;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
+
 }

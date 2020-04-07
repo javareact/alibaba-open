@@ -4,12 +4,12 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class CreateOrder4CybMediaParams extends BaseEntityParams
 {
-    public $addressParam;
-    public $cargoParamList;
-    public $message;
-    public $outerOrderInfo;
-    public $tradeType;
-    public $useChannelPrice;
+    private $addressParam;
+    private $cargoParamList;
+    private $message;
+    private $outerOrderInfo;
+    private $tradeType;
+    private $useChannelPrice;
 
     /**
      * CreateOrder4CybMediaParams constructor.
@@ -52,6 +52,15 @@ class CreateOrder4CybMediaParams extends BaseEntityParams
     {
         $this->useChannelPrice = $useChannelPrice;
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

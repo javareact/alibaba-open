@@ -5,9 +5,9 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class LogisticsInfosParams extends BaseEntityParams
 {
-    public $orderId;
-    public $fields;
-    public $webSite;
+    private $orderId;
+    private $fields;
+    private $webSite;
 
     /**
      * LogisticsInfosParams constructor.
@@ -28,6 +28,15 @@ class LogisticsInfosParams extends BaseEntityParams
     {
         $this->fields = $fields;
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
     }
 
 }

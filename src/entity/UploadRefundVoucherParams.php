@@ -6,7 +6,7 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class UploadRefundVoucherParams extends BaseEntityParams
 {
-    public $imageData;
+    private $imageData;
 
     /**
      * UploadRefundVoucherParams constructor.
@@ -18,4 +18,12 @@ class UploadRefundVoucherParams extends BaseEntityParams
         $this->imageData = $imageData;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 }

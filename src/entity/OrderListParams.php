@@ -6,22 +6,22 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class OrderListParams extends BaseEntityParams
 {
-    public $bizTypes;
-    public $createEndTime;
-    public $createStartTime;
-    public $isHis;
-    public $modifyEndTime;
-    public $modifyStartTime;
-    public $orderStatus;
-    public $page;
-    public $pageSize;
-    public $refundStatus;
-    public $sellerMemberId;
-    public $sellerRateStatus;
-    public $tradeType;
-    public $productName;
-    public $needBuyerAddressAndPhone;
-    public $needMemoInfo;
+    private $bizTypes;
+    private $createEndTime;
+    private $createStartTime;
+    private $isHis;
+    private $modifyEndTime;
+    private $modifyStartTime;
+    private $orderStatus;
+    private $page;
+    private $pageSize;
+    private $refundStatus;
+    private $sellerMemberId;
+    private $sellerRateStatus;
+    private $tradeType;
+    private $productName;
+    private $needBuyerAddressAndPhone;
+    private $needMemoInfo;
 
     /**
      * OrderListParams constructor.
@@ -191,5 +191,13 @@ class OrderListParams extends BaseEntityParams
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 
 }

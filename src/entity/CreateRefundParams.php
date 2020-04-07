@@ -6,16 +6,16 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class CreateRefundParams extends BaseEntityParams
 {
-    public $orderId;
-    public $orderEntryIds;
-    public $disputeRequest;
-    public $applyPayment;
-    public $applyCarriage;
-    public $applyReasonId;
-    public $description;
-    public $goodsStatus;
-    public $vouchers;
-    public $orderEntryCountList;
+    private $orderId;
+    private $orderEntryIds;
+    private $disputeRequest;
+    private $applyPayment;
+    private $applyCarriage;
+    private $applyReasonId;
+    private $description;
+    private $goodsStatus;
+    private $vouchers;
+    private $orderEntryCountList;
 
     /**
      * CreateRefundParams constructor.
@@ -60,5 +60,12 @@ class CreateRefundParams extends BaseEntityParams
         return $this;
     }
 
-
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 }

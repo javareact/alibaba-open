@@ -4,9 +4,9 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class QueryOrderRefundParams extends BaseEntityParams
 {
-    public $refundId;
-    public $needTimeOutInfo;
-    public $needOrderRefundOperation;
+    private $refundId;
+    private $needTimeOutInfo;
+    private $needOrderRefundOperation;
 
     /**
      * QueryOrderRefundParams constructor.
@@ -37,5 +37,12 @@ class QueryOrderRefundParams extends BaseEntityParams
         return $this;
     }
 
-
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
 }

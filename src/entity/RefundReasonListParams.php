@@ -6,9 +6,9 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class RefundReasonListParams extends BaseEntityParams
 {
-    public $orderId;
-    public $orderEntryIds;
-    public $goodsStatus;
+    private $orderId;
+    private $orderEntryIds;
+    private $goodsStatus;
 
     /**
      * RefundReasonListParams constructor.
@@ -22,4 +22,14 @@ class RefundReasonListParams extends BaseEntityParams
         $this->orderEntryIds = $orderEntryIds;
         $this->goodsStatus   = $goodsStatus;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function build()
+    {
+        //过滤NULL和空
+        return array_filter(get_object_vars($this));
+    }
+
 }
