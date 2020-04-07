@@ -2,11 +2,12 @@
 
 namespace JavaReact\AlibabaOpen\entity;
 
-abstract class BaseEntityParams
+use JavaReact\AlibabaOpen\interfaces\Params;
+
+abstract class BaseEntityParams implements Params
 {
     /**
-     * PUBLIC属性转数组
-     * @return array
+     * @inheritDoc
      */
     public function build()
     {

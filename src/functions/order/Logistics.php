@@ -3,6 +3,8 @@
 namespace JavaReact\AlibabaOpen\functions\order;
 
 use JavaReact\AlibabaOpen\core\BaseClient;
+use JavaReact\AlibabaOpen\entity\LogisticsInfosParams;
+use JavaReact\AlibabaOpen\entity\LogisticsTraceInfoParams;
 
 /**
  * 物流模块
@@ -12,21 +14,25 @@ class Logistics extends BaseClient
 {
     /**
      * 获取交易订单的物流信息(买家视角)
+     * @param LogisticsInfosParams $logisticsInfosParams
      * @return $this
      */
-    public function getLogisticsInfos()
+    public function getLogisticsInfos(LogisticsInfosParams $logisticsInfosParams)
     {
-        $this->url_info = 'com.alibaba.logistics:alibaba.trade.getLogisticsInfos.buyerView-1';
+        $this->app->params = $logisticsInfosParams->build();
+        $this->url_info    = 'com.alibaba.logistics:alibaba.trade.getLogisticsInfos.buyerView-1';
         return $this;
     }
 
     /**
      * 获取交易订单的物流跟踪信息(买家视角)
+     * @param LogisticsTraceInfoParams $logisticsTraceInfoParams
      * @return $this
      */
-    public function getLogisticsTraceInfo()
+    public function getLogisticsTraceInfo(LogisticsTraceInfoParams $logisticsTraceInfoParams)
     {
-        $this->url_info = 'com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView-1';
+        $this->app->params = $logisticsTraceInfoParams->build();
+        $this->url_info    = 'com.alibaba.logistics:alibaba.trade.getLogisticsTraceInfo.buyerView-1';
         return $this;
     }
 
@@ -36,6 +42,7 @@ class Logistics extends BaseClient
      */
     public function queryLogisticCompanyListOffline()
     {
+        //此接口无应用参数
         $this->url_info = 'com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList.offline-1';
         return $this;
     }
@@ -46,6 +53,7 @@ class Logistics extends BaseClient
      */
     public function queryLogisticCompanyList()
     {
+        //此接口无应用参数
         $this->url_info = 'com.alibaba.logistics:alibaba.logistics.OpQueryLogisticCompanyList-1';
         return $this;
     }

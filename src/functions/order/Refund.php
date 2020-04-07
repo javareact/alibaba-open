@@ -5,6 +5,11 @@ namespace JavaReact\AlibabaOpen\functions\order;
 
 
 use JavaReact\AlibabaOpen\core\BaseClient;
+use JavaReact\AlibabaOpen\entity\CreateRefundParams;
+use JavaReact\AlibabaOpen\entity\QueryOrderRefundParams;
+use JavaReact\AlibabaOpen\entity\RefundReasonListParams;
+use JavaReact\AlibabaOpen\entity\ReturnGoodsParams;
+use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
 /**
  * 退货模块
@@ -15,42 +20,50 @@ class Refund extends BaseClient
 
     /**
      * 创建退款退货申请
+     * @param CreateRefundParams $createRefundParams
      * @return $this
      */
-    public function createRefund()
+    public function createRefund(CreateRefundParams $createRefundParams)
     {
-        $this->url_info = 'com.alibaba.trade:alibaba.trade.createRefund-1';
+        $this->app->params = $createRefundParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.createRefund-1';
         return $this;
     }
 
     /**
      * 查询退款退货原因（用于创建退款退货）
+     * @param RefundReasonListParams $refundReasonListParams
      * @return $this
      */
-    public function getRefundReasonList()
+    public function getRefundReasonList(RefundReasonListParams $refundReasonListParams)
     {
-        $this->url_info = 'com.alibaba.trade:alibaba.trade.getRefundReasonList-1';
+        $this->app->params = $refundReasonListParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.getRefundReasonList-1';
         return $this;
     }
 
     /**
      * 上传退款退货凭证
+     * @param UploadRefundVoucherParams $uploadRefundVoucherParams
      * @return $this
      */
-    public function uploadRefundVoucher()
+    public function uploadRefundVoucher(UploadRefundVoucherParams $uploadRefundVoucherParams)
     {
-        $this->url_info = 'com.alibaba.trade:alibaba.trade.uploadRefundVoucher-1';
+        $this->app->params = $uploadRefundVoucherParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.uploadRefundVoucher-1';
         return $this;
     }
 
     /**
      * 查询退款单详情-根据退款单ID
      *
+     * @param QueryOrderRefundParams $queryOrderRefundParams
      * @return $this
      */
-    public function queryOrderRefund()
+    public function queryOrderRefund(QueryOrderRefundParams $queryOrderRefundParams)
     {
-        $this->url_info = 'com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund-1';
+        $this->app->params = $queryOrderRefundParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefund-1';
         return $this;
     }
 
@@ -58,11 +71,13 @@ class Refund extends BaseClient
     /**
      * 买家提交退款货信息
      *
+     * @param ReturnGoodsParams $returnGoodsParams
      * @return $this
      */
-    public function returnGoods()
+    public function returnGoods(ReturnGoodsParams $returnGoodsParams)
     {
-        $this->url_info = 'com.alibaba.trade:alibaba.trade.refund.returnGoods-1';
+        $this->app->params = $returnGoodsParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.refund.returnGoods-1';
         return $this;
     }
 
