@@ -2,6 +2,8 @@
 
 namespace Test\AlibabaOpen;
 
+use JavaReact\AlibabaOpen\entity\LogisticsInfosParams;
+
 /**
  * Class OrderTest
  * @internal
@@ -23,6 +25,6 @@ class OrderTest extends BaseTest
         $obj->setAppsecret(getenv('AppSecret'));
         $obj->setAccessToken(getenv('AccessToken'));
         $res = $obj->order->setApi('com.alibaba.product:alibaba.product.follow-1')->post(); //api 就是阿里巴巴文档中的
-        $this->assertStringContainsString('gw.AppKeyNotFound', $res['error_code']);
+        $this->assertStringContainsString('0', $res['code']);
     }
 }

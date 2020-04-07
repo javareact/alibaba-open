@@ -13,7 +13,8 @@ class BaseTest extends TestCase
 {
     protected function setUp(): void
     {
-        (new Dotenv(true))->load('.env');
         parent::setUp();
+        //设置测试环境变量
+        (new Dotenv(true))->load('.env');
     }
 }
