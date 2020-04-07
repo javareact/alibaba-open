@@ -7,13 +7,11 @@ class ProtocolPayParams extends BaseEntityParams
     public $orderId;
 
     /**
-     * @param mixed $orderId
-     * @return ProtocolPayParams
+     * ProtocolPayParams constructor.
+     * @param $orderId
      */
-    public function setOrderId($orderId)
+    public function __construct($orderId)
     {
         $this->orderId = $orderId;
-        return $this;
     }
-
 }

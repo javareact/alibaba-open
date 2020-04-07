@@ -1,8 +1,6 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\entity;
-
 
 class ReturnGoodsParams extends BaseEntityParams
 {
@@ -13,33 +11,16 @@ class ReturnGoodsParams extends BaseEntityParams
     public $vouchers;
 
     /**
-     * @param mixed $refundId
-     * @return ReturnGoodsParams
+     * ReturnGoodsParams constructor.
+     * @param $refundId
+     * @param $logisticsCompanyNo
+     * @param $freightBill
      */
-    public function setRefundId($refundId)
+    public function __construct($refundId, $logisticsCompanyNo, $freightBill)
     {
-        $this->refundId = $refundId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $logisticsCompanyNo
-     * @return ReturnGoodsParams
-     */
-    public function setLogisticsCompanyNo($logisticsCompanyNo)
-    {
+        $this->refundId           = $refundId;
         $this->logisticsCompanyNo = $logisticsCompanyNo;
-        return $this;
-    }
-
-    /**
-     * @param mixed $freightBill
-     * @return ReturnGoodsParams
-     */
-    public function setFreightBill($freightBill)
-    {
-        $this->freightBill = $freightBill;
-        return $this;
+        $this->freightBill        = $freightBill;
     }
 
     /**

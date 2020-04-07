@@ -9,13 +9,13 @@ class UploadRefundVoucherParams extends BaseEntityParams
     public $imageData;
 
     /**
-     * @param mixed $imageData
-     * @return UploadRefundVoucherParams
+     * UploadRefundVoucherParams constructor.
+     * @param $imageData
      */
-    public function setImageData($imageData)
+    public function __construct($imageData)
     {
+        //fixme 不参与签名,类型为byte[]
         $this->imageData = $imageData;
-        return $this;
     }
 
 }

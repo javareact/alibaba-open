@@ -1,8 +1,6 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\entity;
-
 
 class QueryOrderRefundParams extends BaseEntityParams
 {
@@ -11,13 +9,12 @@ class QueryOrderRefundParams extends BaseEntityParams
     public $needOrderRefundOperation;
 
     /**
-     * @param mixed $refundId
-     * @return QueryOrderRefundParams
+     * QueryOrderRefundParams constructor.
+     * @param $refundId
      */
-    public function setRefundId($refundId)
+    public function __construct($refundId)
     {
         $this->refundId = $refundId;
-        return $this;
     }
 
     /**

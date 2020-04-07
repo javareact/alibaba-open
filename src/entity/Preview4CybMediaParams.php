@@ -8,23 +8,13 @@ class Preview4CybMediaParams extends BaseEntityParams
     public $cargoParamList;
 
     /**
-     * @param mixed $addressParam
-     * @return Preview4CybMediaParams
+     * Preview4CybMediaParams constructor.
+     * @param $addressParam
+     * @param $cargoParamList
      */
-    public function setAddressParam($addressParam)
+    public function __construct($addressParam, $cargoParamList)
     {
-        $this->addressParam = $addressParam;
-        return $this;
-    }
-
-    /**
-     * @param mixed $cargoParamList
-     * @return Preview4CybMediaParams
-     */
-    public function setCargoParamList($cargoParamList)
-    {
+        $this->addressParam   = $addressParam;
         $this->cargoParamList = $cargoParamList;
-        return $this;
     }
-
 }

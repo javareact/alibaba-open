@@ -10,23 +10,14 @@ class OrderDetailParams extends BaseEntityParams
     public $attributeKeys;
 
     /**
-     * @param mixed $webSite
-     * @return OrderDetailParams
+     * OrderDetailParams constructor.
+     * @param $webSite
+     * @param $orderId
      */
-    public function setWebSite($webSite)
+    public function __construct($webSite, $orderId)
     {
         $this->webSite = $webSite;
-        return $this;
-    }
-
-    /**
-     * @param mixed $orderId
-     * @return OrderDetailParams
-     */
-    public function setOrderId($orderId)
-    {
         $this->orderId = $orderId;
-        return $this;
     }
 
     /**

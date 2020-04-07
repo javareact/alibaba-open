@@ -12,23 +12,16 @@ class CreateOrder4CybMediaParams extends BaseEntityParams
     public $useChannelPrice;
 
     /**
-     * @param mixed $addressParam
-     * @return CreateOrder4CybMediaParams
+     * CreateOrder4CybMediaParams constructor.
+     * @param $addressParam
+     * @param $cargoParamList
+     * @param $outerOrderInfo
      */
-    public function setAddressParam($addressParam)
+    public function __construct($addressParam, $cargoParamList, $outerOrderInfo)
     {
-        $this->addressParam = $addressParam;
-        return $this;
-    }
-
-    /**
-     * @param mixed $cargoParamList
-     * @return CreateOrder4CybMediaParams
-     */
-    public function setCargoParamList($cargoParamList)
-    {
+        $this->addressParam   = $addressParam;
         $this->cargoParamList = $cargoParamList;
-        return $this;
+        $this->outerOrderInfo = $outerOrderInfo;
     }
 
     /**
@@ -38,16 +31,6 @@ class CreateOrder4CybMediaParams extends BaseEntityParams
     public function setMessage($message)
     {
         $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @param mixed $outerOrderInfo
-     * @return CreateOrder4CybMediaParams
-     */
-    public function setOuterOrderInfo($outerOrderInfo)
-    {
-        $this->outerOrderInfo = $outerOrderInfo;
         return $this;
     }
 

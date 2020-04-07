@@ -12,33 +12,16 @@ class CancelTradeParams extends BaseEntityParams
     public $remark;
 
     /**
-     * @param mixed $webSite
-     * @return CancelTradeParams
+     * CancelTradeParams constructor.
+     * @param $webSite
+     * @param $tradeID
+     * @param $cancelReason
      */
-    public function setWebSite($webSite)
+    public function __construct($webSite, $tradeID, $cancelReason)
     {
-        $this->webSite = $webSite;
-        return $this;
-    }
-
-    /**
-     * @param mixed $tradeID
-     * @return CancelTradeParams
-     */
-    public function setTradeID($tradeID)
-    {
-        $this->tradeID = $tradeID;
-        return $this;
-    }
-
-    /**
-     * @param mixed $cancelReason
-     * @return CancelTradeParams
-     */
-    public function setCancelReason($cancelReason)
-    {
+        $this->webSite      = $webSite;
+        $this->tradeID      = $tradeID;
         $this->cancelReason = $cancelReason;
-        return $this;
     }
 
     /**

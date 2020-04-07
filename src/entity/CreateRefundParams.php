@@ -18,83 +18,26 @@ class CreateRefundParams extends BaseEntityParams
     public $orderEntryCountList;
 
     /**
-     * @param mixed $orderId
-     * @return CreateRefundParams
+     * CreateRefundParams constructor.
+     * @param $orderId
+     * @param $orderEntryIds
+     * @param $disputeRequest
+     * @param $applyPayment
+     * @param $applyCarriage
+     * @param $applyReasonId
+     * @param $description
+     * @param $goodsStatus
      */
-    public function setOrderId($orderId)
+    public function __construct($orderId, $orderEntryIds, $disputeRequest, $applyPayment, $applyCarriage, $applyReasonId, $description, $goodsStatus)
     {
-        $this->orderId = $orderId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $orderEntryIds
-     * @return CreateRefundParams
-     */
-    public function setOrderEntryIds($orderEntryIds)
-    {
-        $this->orderEntryIds = $orderEntryIds;
-        return $this;
-    }
-
-    /**
-     * @param mixed $disputeRequest
-     * @return CreateRefundParams
-     */
-    public function setDisputeRequest($disputeRequest)
-    {
+        $this->orderId        = $orderId;
+        $this->orderEntryIds  = $orderEntryIds;
         $this->disputeRequest = $disputeRequest;
-        return $this;
-    }
-
-    /**
-     * @param mixed $applyPayment
-     * @return CreateRefundParams
-     */
-    public function setApplyPayment($applyPayment)
-    {
-        $this->applyPayment = $applyPayment;
-        return $this;
-    }
-
-    /**
-     * @param mixed $applyCarriage
-     * @return CreateRefundParams
-     */
-    public function setApplyCarriage($applyCarriage)
-    {
-        $this->applyCarriage = $applyCarriage;
-        return $this;
-    }
-
-    /**
-     * @param mixed $applyReasonId
-     * @return CreateRefundParams
-     */
-    public function setApplyReasonId($applyReasonId)
-    {
-        $this->applyReasonId = $applyReasonId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $description
-     * @return CreateRefundParams
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @param mixed $goodsStatus
-     * @return CreateRefundParams
-     */
-    public function setGoodsStatus($goodsStatus)
-    {
-        $this->goodsStatus = $goodsStatus;
-        return $this;
+        $this->applyPayment   = $applyPayment;
+        $this->applyCarriage  = $applyCarriage;
+        $this->applyReasonId  = $applyReasonId;
+        $this->description    = $description;
+        $this->goodsStatus    = $goodsStatus;
     }
 
     /**

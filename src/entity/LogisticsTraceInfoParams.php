@@ -11,6 +11,18 @@ class LogisticsTraceInfoParams extends BaseEntityParams
     public $webSite;
 
     /**
+     * LogisticsTraceInfoParams constructor.
+     * @param $orderId
+     * @param $webSite
+     */
+    public function __construct($orderId, $webSite)
+    {
+        $this->orderId = $orderId;
+        $this->webSite = $webSite;
+    }
+
+
+    /**
      * @param mixed $logisticsId
      * @return LogisticsTraceInfoParams
      */
@@ -19,26 +31,5 @@ class LogisticsTraceInfoParams extends BaseEntityParams
         $this->logisticsId = $logisticsId;
         return $this;
     }
-
-    /**
-     * @param mixed $orderId
-     * @return LogisticsTraceInfoParams
-     */
-    public function setOrderId($orderId)
-    {
-        $this->orderId = $orderId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $webSite
-     * @return LogisticsTraceInfoParams
-     */
-    public function setWebSite($webSite)
-    {
-        $this->webSite = $webSite;
-        return $this;
-    }
-
 
 }

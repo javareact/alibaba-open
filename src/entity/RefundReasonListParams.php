@@ -11,33 +11,15 @@ class RefundReasonListParams extends BaseEntityParams
     public $goodsStatus;
 
     /**
-     * @param mixed $orderId
-     * @return RefundReasonListParams
+     * RefundReasonListParams constructor.
+     * @param $orderId
+     * @param $orderEntryIds
+     * @param $goodsStatus
      */
-    public function setOrderId($orderId)
+    public function __construct($orderId, $orderEntryIds, $goodsStatus)
     {
-        $this->orderId = $orderId;
-        return $this;
-    }
-
-    /**
-     * @param mixed $orderEntryIds
-     * @return RefundReasonListParams
-     */
-    public function setOrderEntryIds($orderEntryIds)
-    {
+        $this->orderId       = $orderId;
         $this->orderEntryIds = $orderEntryIds;
-        return $this;
+        $this->goodsStatus   = $goodsStatus;
     }
-
-    /**
-     * @param mixed $goodsStatus
-     * @return RefundReasonListParams
-     */
-    public function setGoodsStatus($goodsStatus)
-    {
-        $this->goodsStatus = $goodsStatus;
-        return $this;
-    }
-
 }

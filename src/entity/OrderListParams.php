@@ -24,6 +24,14 @@ class OrderListParams extends BaseEntityParams
     public $needMemoInfo;
 
     /**
+     * OrderListParams constructor.
+     */
+    public function __construct()
+    {
+    }
+
+
+    /**
      * @param mixed $bizTypes
      * @return OrderListParams
      */
