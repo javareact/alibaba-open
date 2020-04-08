@@ -4,6 +4,7 @@ namespace Test\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\AlibabaClient;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
+use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
 /**
@@ -56,6 +57,19 @@ class OrderTest extends BaseTest
         $obj->setAppsecret(getenv('AppSecret'));
         $img = file_get_contents('https://h2.appsimg.com/a.appsimg.com/upload/merchandise/pdcvis/603409/2020/0327/6/14bfed3d-42b2-4e89-8dd3-96059dcff849_420_531_292x372_90.jpg');
         $res = $obj->refund->uploadRefundVoucher((new UploadRefundVoucherParams($img)))->post();
+        var_export($res);
+        $this->assertStringContainsString('true', $res['result']['success']);
+    }
+
+    /**
+     * 测试营销活动接口
+     */
+    public function testQueryOfferDetailActivity()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->product->queryOfferDetailActivity(new QueryOfferDetailActivityParams('532137286888'))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('true', $res['result']['success']);
     }
