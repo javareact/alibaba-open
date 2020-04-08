@@ -15,6 +15,6 @@ class BaseTest extends TestCase
     {
         parent::setUp();
         //设置测试环境变量
-        (new Dotenv(true))->load('.env');
+        (new Dotenv(true))->load(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '.env');
     }
 }
