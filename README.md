@@ -13,7 +13,7 @@ $ composer require javareact/alibaba_open -vvv
         $obj = new \JavaReact\AlibabaOpen\AlibabaClient(['page'=>1]);
         $obj->setAppkey('你的appkey');
         $obj->setAppsecret('你的秘钥');
-        $obj->setAccessToken('自己想办法去获取token，如果设置的是多用户单用户的直接复制，应用管理中的token');
+        $obj->setAccessToken('自己想办法去获取token，如果设置的是多用户单用户的直接复制，应用管理中的token');//如果是单用户模式,无需添加此参数
         $res =$obj->order->setApi('com.alibaba.trade:alibaba.trade.getBuyerOrderList-1')->get(); //api 就是阿里巴巴文档中的
         var_dump($res);
 ```
@@ -61,7 +61,13 @@ class AliOpen extends \JavaReact\AlibabaOpen\AlibabaClient
             ->get();
 
 ```
-
+关注商品的例子
+```php
+        $get_data = (new  \JavaReact\AlibabaOpen\AlibabaClient())
+            ->product
+            ->productFollow(new \JavaReact\AlibabaOpen\entity\ProductFollowParams('532137286888'))//建议使用此种方法传参
+            ->get();
+```
 更新日志：
 
 ## License
