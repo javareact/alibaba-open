@@ -10,13 +10,12 @@ class ProductFollowParams extends BaseEntityParams
     private $productId;
 
     /**
-     * @param mixed $productId
-     * @return ProductFollowParams
+     * ProductFollowParams constructor.
+     * @param $productId
      */
-    public function setProductId($productId)
+    public function __construct($productId)
     {
         $this->productId = $productId;
-        return $this;
     }
 
     /**
