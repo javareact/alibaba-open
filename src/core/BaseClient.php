@@ -47,11 +47,12 @@ class BaseClient
 
     /**
      * 签名
+     * @param $method
      * @throws Exception
      */
-    public function sign()
+    public function sign($method)
     {
-        //url 因子
+        $method = strtolower($method);
         if (empty($this->url_info)) {
             throw new Exception('url因子为空，如无配置，请配置');
         }
@@ -81,7 +82,11 @@ class BaseClient
         //签名
         $code_sign      = strtoupper(bin2hex(hash_hmac("sha1", $sign_str, $appSecret, true)));
         $this->postData = $code_arr;
-        $this->res_url  = $this->base_url . $apiInfo . '?' . $url_pin . '_aop_signature=' . $code_sign;
+        if ($method == 'get') {
+            $this->res_url = $this->base_url . $apiInfo . '?' . $url_pin . '_aop_signature=' . $code_sign;
+        } else {
+            $this->res_url = $this->base_url . $apiInfo . '?_aop_signature=' . $code_sign;
+        }
     }
 
     /**
@@ -90,8 +95,8 @@ class BaseClient
      */
     public function get()
     {
-        $this->sign();
-        $file = $this->curlRequest($this->res_url, '', 'GET');
+        $this->sign('get');
+        $file = $this->curlRequest($this->res_url, '', 'get');
         return json_decode($file, true);
     }
 
@@ -101,8 +106,8 @@ class BaseClient
      */
     public function post()
     {
-        $this->sign();
-        $result = $this->curlRequest($this->res_url, $this->postData, 'POST');
+        $this->sign('post');
+        $result = $this->curlRequest($this->res_url, $this->postData, 'post');
         return json_decode($result, true);
     }
 
@@ -130,8 +135,8 @@ class BaseClient
      */
     public function curlRequest($base_url, $query_data, $method = 'get', $ssl = true, $exe_timeout = 10, $conn_timeout = 10, $dns_timeout = 3600)
     {
-
-        $ch = curl_init();
+        $method = strtolower($method);
+        $ch     = curl_init();
         if ($method == 'get') {
             //method get
             if ((!empty($query_data))
