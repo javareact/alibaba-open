@@ -113,7 +113,7 @@ class BaseClient
 
     /**
      * 设置API地址
-     * @param $comalibabatradealibabatradegetbuyerView
+     * @param string $comalibabatradealibabatradegetbuyerView
      * @return $this
      */
     public function setApi($comalibabatradealibabatradegetbuyerView)

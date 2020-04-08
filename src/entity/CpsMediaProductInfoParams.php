@@ -11,13 +11,12 @@ class CpsMediaProductInfoParams extends BaseEntityParams
     private $needIntelligentInfo;
 
     /**
-     * @param mixed $offerId
-     * @return CpsMediaProductInfoParams
+     * CpsMediaProductInfoParams constructor.
+     * @param $offerId
      */
-    public function setOfferId($offerId)
+    public function __construct($offerId)
     {
         $this->offerId = $offerId;
-        return $this;
     }
 
     /**
