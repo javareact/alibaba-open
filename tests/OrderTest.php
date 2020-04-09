@@ -5,6 +5,7 @@ namespace Test\AlibabaOpen;
 use JavaReact\AlibabaOpen\AlibabaClient;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
 use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
+use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
@@ -83,5 +84,18 @@ class OrderTest extends BaseTest
         $res = $obj->product->getCategoryById(new GetCategoryByIdParams(0))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('true', $res['result']['success']);
+    }
+
+    /**
+     * 读取已选选品库
+     */
+    public function testListUserFeed()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->product->listCybUserGroupFeed((new ListCybUserGroupFeedParams(1, 50))->setGroupId(0))->get(); //api 就是阿里巴巴文档中的
+        var_export($res);
+//        $this->assertStringContainsString('true', $res['result']['success']);
     }
 }
