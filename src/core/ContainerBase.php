@@ -1,8 +1,6 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\core;
-
 
 /**
  * Class ContainerBase
@@ -67,33 +65,37 @@ class ContainerBase extends Container
      */
     public function __get($id)
     {
-
         return $this->offsetGet($id);
-
     }
 
     /**
      * @param mixed $appsecret
+     * @return ContainerBase
      */
-    public function setAppsecret($appsecret): void
+    public function setAppsecret($appsecret)
     {
         $this->appsecret = $appsecret;
+        return $this;
     }
 
     /**
      * @param mixed $appkey
+     * @return ContainerBase
      */
-    public function setAppkey($appkey): void
+    public function setAppkey($appkey)
     {
         $this->appkey = $appkey;
+        return $this;
     }
 
     /**
      * @param string $access_token
+     * @return ContainerBase
      */
-    public function setAccessToken(string $access_token): void
+    public function setAccessToken(string $access_token)
     {
         $this->access_token = $access_token;
+        return $this;
     }
 
 
