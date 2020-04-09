@@ -4,6 +4,7 @@ namespace Test\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\AlibabaClient;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
+use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
@@ -43,7 +44,7 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->product->cpsMediaProductInfo(new CpsMediaProductInfoParams('532137286888'))->post(); //api 就是阿里巴巴文档中的
-        var_export($res);
+        die(json_encode($res));
         $this->assertStringContainsString('0', $res['code']);
     }
 
@@ -70,6 +71,16 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->product->queryOfferDetailActivity(new QueryOfferDetailActivityParams('532137286888'))->get(); //api 就是阿里巴巴文档中的
+        var_export($res);
+        $this->assertStringContainsString('true', $res['result']['success']);
+    }
+
+    public function testGetCategoryById()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->product->getCategoryById(new GetCategoryByIdParams(0))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('true', $res['result']['success']);
     }

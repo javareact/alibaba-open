@@ -1,19 +1,23 @@
 <?php
 
+
 namespace JavaReact\AlibabaOpen\entity;
 
-class ProtocolPayParams extends BaseEntityParams
+
+class GetCategoryByIdParams extends BaseEntityParams
 {
-    private $orderId;
+
+    private $categoryID;
 
     /**
-     * ProtocolPayParams constructor.
-     * @param $orderId
+     * GetCategoryParams constructor.
+     * @param $categoryID
      */
-    public function __construct($orderId)
+    public function __construct($categoryID)
     {
-        $this->orderId = $orderId;
+        $this->categoryID = $categoryID;
     }
+
 
     /**
      * @inheritDoc
@@ -25,5 +29,4 @@ class ProtocolPayParams extends BaseEntityParams
             return !is_null($val);
         });
     }
-
 }

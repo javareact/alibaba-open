@@ -1,8 +1,6 @@
 <?php
 
-
 namespace JavaReact\AlibabaOpen\entity;
-
 
 class UploadRefundVoucherParams extends BaseEntityParams
 {
@@ -22,7 +20,9 @@ class UploadRefundVoucherParams extends BaseEntityParams
      */
     public function build()
     {
-        //过滤NULL和空
-        return array_filter(get_object_vars($this));
+        //过滤NULL
+        return array_filter(get_object_vars($this), function ($val) {
+            return !is_null($val);
+        });
     }
 }
