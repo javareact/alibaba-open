@@ -82,7 +82,7 @@ class OrderTest extends BaseTest
         $obj = new AlibabaClient();
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
-        $res = $obj->product->getCategoryById(new GetCategoryByIdParams(122702011))->get(); //api 就是阿里巴巴文档中的
+        $res = $obj->product->getCategoryById(new GetCategoryByIdParams(123284012))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('true', $res['result']['success']);
     }
