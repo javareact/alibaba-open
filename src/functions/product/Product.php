@@ -5,6 +5,7 @@ namespace JavaReact\AlibabaOpen\functions\product;
 use JavaReact\AlibabaOpen\core\BaseClient;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
 use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
+use JavaReact\AlibabaOpen\entity\ListCybUserGroupParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
 use JavaReact\AlibabaOpen\entity\ProductFollowParams;
@@ -86,6 +87,18 @@ class Product extends BaseClient
     {
         $this->app->params = $listCybUserGroupFeedParams->build();
         $this->url_info    = 'com.alibaba.p4p:alibaba.cps.op.listCybUserGroupFeed-1';
+        return $this;
+    }
+
+    /**
+     * 获取我的选品库列表
+     * @param ListCybUserGroupParams $listCybUserGroupFeed
+     * @return Product
+     */
+    public function listCybUserGroup(ListCybUserGroupParams $listCybUserGroupFeed)
+    {
+        $this->app->params = $listCybUserGroupFeed->build();
+        $this->url_info    = 'com.alibaba.p4p:alibaba.cps.op.listCybUserGroup-1';
         return $this;
     }
 
