@@ -3,6 +3,9 @@
 namespace Test\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\AlibabaClient;
+use JavaReact\AlibabaOpen\entity\AddressCodeChildParams;
+use JavaReact\AlibabaOpen\entity\AddressCodeGetParams;
+use JavaReact\AlibabaOpen\entity\AddressCodeParseParams;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
 use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
@@ -72,7 +75,7 @@ class OrderTest extends BaseTest
         $obj = new AlibabaClient();
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
-        $res = $obj->product->queryOfferDetailActivity(new QueryOfferDetailActivityParams('559935080119'))->get(); //api 就是阿里巴巴文档中的
+        $res = $obj->product->queryOfferDetailActivity(new QueryOfferDetailActivityParams('560027245123'))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('true', $res['result']['success']);
     }
@@ -109,6 +112,19 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->product->listCybUserGroup((new ListCybUserGroupParams(1, 50)))->get(); //api 就是阿里巴巴文档中的
+        var_export($res);
+//        $this->assertStringContainsString('true', $res['result']['success']);
+    }
+
+    /**
+     * 获取交易地址代码表详情
+     */
+    public function testAddressCodeChild()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->logistics->addressCodeGet((new AddressCodeGetParams(330000)))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
 //        $this->assertStringContainsString('true', $res['result']['success']);
     }
