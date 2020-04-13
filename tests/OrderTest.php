@@ -3,13 +3,12 @@
 namespace Test\AlibabaOpen;
 
 use JavaReact\AlibabaOpen\AlibabaClient;
-use JavaReact\AlibabaOpen\entity\AddressCodeChildParams;
 use JavaReact\AlibabaOpen\entity\AddressCodeGetParams;
-use JavaReact\AlibabaOpen\entity\AddressCodeParseParams;
 use JavaReact\AlibabaOpen\entity\CpsMediaProductInfoParams;
 use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupParams;
+use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
@@ -124,8 +123,17 @@ class OrderTest extends BaseTest
         $obj = new AlibabaClient();
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
-        $res = $obj->logistics->addressCodeGet((new AddressCodeGetParams(330000)))->get(); //api 就是阿里巴巴文档中的
+        $res = $obj->logistics->addressCodeGet((new AddressCodeGetParams(110100)))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
 //        $this->assertStringContainsString('true', $res['result']['success']);
+    }
+
+    public function test()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->product->listOverPricedOffer((new ListOverPricedOfferParams(1, 10))->setOfferIds('542833671651'))->get(); //api 就是阿里巴巴文档中的
+        var_export($res);
     }
 }

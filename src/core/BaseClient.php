@@ -66,10 +66,16 @@ class BaseClient
         $appKey    = $this->app->appkey;
         $appSecret = $this->app->appsecret;
         $apiInfo   = $url_info . $appKey;//此处请用具体api进行替换
+        $params    = $this->app->params;
+        if ($params) {
+            foreach ($params as &$param) {
+                $param = is_string($param) ? $param : json_encode($param, JSON_UNESCAPED_UNICODE);
+            }
+        }
         //配置参数，请用apiInfo对应的api参数进行替换
         $code_arr  = array_merge([
             'access_token' => $this->app->access_token
-        ], $this->app->params);
+        ], $params);
         $aliParams = array();
         $url_pin   = '';
         foreach ($code_arr as $key => $val) {
