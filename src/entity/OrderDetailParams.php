@@ -4,21 +4,30 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class OrderDetailParams extends BaseEntityParams
 {
-    private $webSite;
+    private $webSite = '1688';
     private $orderId;
     private $includeFields;
     private $attributeKeys;
 
     /**
      * OrderDetailParams constructor.
-     * @param $webSite
      * @param $orderId
      */
-    public function __construct($webSite, $orderId)
+    public function __construct($orderId)
     {
-        $this->webSite = $webSite;
         $this->orderId = $orderId;
     }
+
+    /**
+     * @param string $webSite
+     * @return OrderDetailParams
+     */
+    public function setWebSite(string $webSite): OrderDetailParams
+    {
+        $this->webSite = $webSite;
+        return $this;
+    }
+
 
     /**
      * @param mixed $includeFields

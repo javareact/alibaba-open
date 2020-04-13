@@ -7,18 +7,27 @@ class LogisticsInfosParams extends BaseEntityParams
 {
     private $orderId;
     private $fields;
-    private $webSite;
+    private $webSite = '1688';
 
     /**
      * LogisticsInfosParams constructor.
      * @param $orderId
-     * @param $webSite
      */
-    public function __construct($orderId, $webSite)
+    public function __construct($orderId)
     {
         $this->orderId = $orderId;
-        $this->webSite = $webSite;
     }
+
+    /**
+     * @param string $webSite
+     * @return LogisticsInfosParams
+     */
+    public function setWebSite(string $webSite): LogisticsInfosParams
+    {
+        $this->webSite = $webSite;
+        return $this;
+    }
+
 
     /**
      * @param mixed $fields

@@ -6,22 +6,30 @@ namespace JavaReact\AlibabaOpen\entity;
 
 class CancelTradeParams extends BaseEntityParams
 {
-    private $webSite;
+    private $webSite = '1688';
     private $tradeID;
     private $cancelReason;
     private $remark;
 
     /**
      * CancelTradeParams constructor.
-     * @param $webSite
      * @param $tradeID
      * @param $cancelReason
      */
-    public function __construct($webSite, $tradeID, $cancelReason)
+    public function __construct($tradeID, $cancelReason)
     {
-        $this->webSite      = $webSite;
         $this->tradeID      = $tradeID;
         $this->cancelReason = $cancelReason;
+    }
+
+    /**
+     * @param string $webSite
+     * @return CancelTradeParams
+     */
+    public function setWebSite(string $webSite): CancelTradeParams
+    {
+        $this->webSite = $webSite;
+        return $this;
     }
 
     /**
