@@ -8,11 +8,11 @@ class UploadRefundVoucherParams extends BaseEntityParams
 
     /**
      * UploadRefundVoucherParams constructor.
-     * @param string $imageData file_get_contents返回值即可
+     * @param string $imageData file_get_contents返回值base64encode即可
      */
     public function __construct(string $imageData)
     {
-        $this->imageData = base64_encode($imageData);
+        $this->imageData = $imageData;
     }
 
     /**
