@@ -11,6 +11,7 @@ use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
 use JavaReact\AlibabaOpen\entity\ProductFollowParams;
 use JavaReact\AlibabaOpen\entity\ProductUnfollowParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
+use JavaReact\AlibabaOpen\entity\CrossProductInfoParam;
 
 /**
  * 产品模块
@@ -114,4 +115,22 @@ class Product extends BaseClient
         $this->url_info    = 'com.alibaba.product:alibaba.category.get-1';
         return $this;
     }
+
+
+    /**
+     * 跨境场景获取商品详情
+     *
+     * @param CrossProductInfoParam $crossProductInfoParam
+     * @return void
+     * @Author HaierSpi haierspi@qq.com
+     * @DateTime 2020-04-13
+     */
+    public function getCrossProductInfo( CrossProductInfoParam $crossProductInfoParam)
+    {
+
+        $this->app->params = $crossProductInfoParam->build();
+        $this->url_info    = 'com.alibaba.product:alibaba.cross.productInfo-1';
+        return $this;
+    }
+
 }

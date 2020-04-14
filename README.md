@@ -68,6 +68,18 @@ class AliOpen extends \JavaReact\AlibabaOpen\AlibabaClient
             ->productFollow(new \JavaReact\AlibabaOpen\entity\ProductFollowParams('532137286888'))//建议使用此种方法传参
             ->get();
 ```
+
+跨境场景下接口获取商品详情
+```php
+$get_data = (new \JavaReact\AlibabaOpen\AlibabaClient())
+    ->setAppkey('you appkey')
+    ->setAppsecret('you Appsecret')
+    ->setAccessToken('you TOKEN')
+    ->product
+    ->getCrossProductInfo(new \JavaReact\AlibabaOpen\entity\CrossProductInfoParam('615890334160')) //商品ID
+    ->post();
+```
+
 更新日志：
 
 ## License
