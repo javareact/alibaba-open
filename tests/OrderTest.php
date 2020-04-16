@@ -9,6 +9,7 @@ use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupParams;
 use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
+use JavaReact\AlibabaOpen\entity\OrderDetailParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
@@ -128,12 +129,24 @@ class OrderTest extends BaseTest
 //        $this->assertStringContainsString('true', $res['result']['success']);
     }
 
-    public function test()
+    public function testListGoods()
     {
         $obj = new AlibabaClient();
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->product->listOverPricedOffer((new ListOverPricedOfferParams(1, 10))->setOfferIds('542833671651'))->get(); //api 就是阿里巴巴文档中的
         var_export($res);
+    }
+
+    /**
+     * 获取订单详情
+     */
+    public function testOrderDetail()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->order->buyerOrderDetail((new OrderDetailParams('946302658687629634')))->get(); //api 就是阿里巴巴文档中的
+        die(json_encode($res));
     }
 }
