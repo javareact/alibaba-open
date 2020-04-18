@@ -5,6 +5,7 @@ namespace JavaReact\AlibabaOpen\functions\order;
 
 use JavaReact\AlibabaOpen\core\BaseClient;
 use JavaReact\AlibabaOpen\entity\CreateRefundParams;
+use JavaReact\AlibabaOpen\entity\QueryOrderRefundOperationListParams;
 use JavaReact\AlibabaOpen\entity\QueryOrderRefundParams;
 use JavaReact\AlibabaOpen\entity\RefundReasonListParams;
 use JavaReact\AlibabaOpen\entity\ReturnGoodsParams;
@@ -77,6 +78,19 @@ class Refund extends BaseClient
     {
         $this->app->params = $returnGoodsParams->build();
         $this->url_info    = 'com.alibaba.trade:alibaba.trade.refund.returnGoods-1';
+        return $this;
+    }
+
+
+    /**
+     * 退款单操作记录列表-买卖双方退款操作记录
+     * @param QueryOrderRefundOperationListParams $queryOrderRefundOperationListParams
+     * @return $this
+     */
+    public function queryOrderRefundOperationList(QueryOrderRefundOperationListParams $queryOrderRefundOperationListParams)
+    {
+        $this->app->params = $queryOrderRefundOperationListParams->build();
+        $this->url_info    = 'com.alibaba.trade:alibaba.trade.refund.OpQueryOrderRefundOperationList-1';
         return $this;
     }
 

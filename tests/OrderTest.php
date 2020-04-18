@@ -12,6 +12,8 @@ use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
 use JavaReact\AlibabaOpen\entity\OrderDetailParams;
 use JavaReact\AlibabaOpen\entity\ProtocolPayParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
+use JavaReact\AlibabaOpen\entity\QueryOrderRefundOperationListParams;
+use JavaReact\AlibabaOpen\entity\QueryOrderRefundParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
 /**
@@ -160,6 +162,30 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->order->protocolPay((new ProtocolPayParams('950325986749629634')))->get();
+        var_export($res);
+    }
+
+    /**
+     * 查看退款详情
+     */
+    public function testRefundDetail()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->refund->queryOrderRefund((new QueryOrderRefundParams ('TQ60534051609623496')))->get();
+        var_export($res);
+    }
+
+    /**
+     * 查看退款操作记录
+     */
+    public function testQueryOrderRefundOperationList()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->refund->queryOrderRefundOperationList((new QueryOrderRefundOperationListParams ('TQ60534051609623496', 1, 10)))->get();
         var_export($res);
     }
 }
