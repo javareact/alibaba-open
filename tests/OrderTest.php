@@ -10,6 +10,7 @@ use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupParams;
 use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
 use JavaReact\AlibabaOpen\entity\OrderDetailParams;
+use JavaReact\AlibabaOpen\entity\ProtocolPayParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
 use JavaReact\AlibabaOpen\entity\UploadRefundVoucherParams;
 
@@ -146,7 +147,19 @@ class OrderTest extends BaseTest
         $obj = new AlibabaClient();
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
-        $res = $obj->order->buyerOrderDetail((new OrderDetailParams('946302658687629634')))->get(); //api 就是阿里巴巴文档中的
+        $res = $obj->order->buyerOrderDetail((new OrderDetailParams('950325986749629634')))->get(); //api 就是阿里巴巴文档中的
         die(json_encode($res));
+    }
+
+    /**
+     * 向1688发起协议扣款
+     */
+    public function testProtocolPay()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->order->protocolPay((new ProtocolPayParams('950325986749629634')))->get();
+        var_export($res);
     }
 }
