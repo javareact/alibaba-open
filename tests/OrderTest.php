@@ -9,6 +9,8 @@ use JavaReact\AlibabaOpen\entity\GetCategoryByIdParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupFeedParams;
 use JavaReact\AlibabaOpen\entity\ListCybUserGroupParams;
 use JavaReact\AlibabaOpen\entity\ListOverPricedOfferParams;
+use JavaReact\AlibabaOpen\entity\LogisticsInfosParams;
+use JavaReact\AlibabaOpen\entity\LogisticsTraceInfoParams;
 use JavaReact\AlibabaOpen\entity\OrderDetailParams;
 use JavaReact\AlibabaOpen\entity\ProtocolPayParams;
 use JavaReact\AlibabaOpen\entity\QueryOfferDetailActivityParams;
@@ -187,6 +189,28 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->refund->queryOrderRefundOperationList((new QueryOrderRefundOperationListParams ('TQ60534051609623496', 1, 10)))->get();
+        var_export($res);
+    }
+
+    public function testGetLogisticsInfos()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->logistics->getLogisticsInfos((new LogisticsInfosParams('954134946027629634')))->get();
+        var_export($res['result'][0]['logisticsCompanyName']);
+        var_export($res['result'][0]['logisticsBillNo']);
+        var_export($res['result'][0]['logisticsId']);
+        var_export($res['result'][0]['status']);
+        var_export($res);
+    }
+
+    public function testGetLogisticsTraceInfo()
+    {
+        $obj = new AlibabaClient();
+        $obj->setAppkey(getenv('AppKey'));
+        $obj->setAppsecret(getenv('AppSecret'));
+        $res = $obj->logistics->getLogisticsTraceInfo((new LogisticsTraceInfoParams('954134946027629634')))->get();
         var_export($res);
     }
 }
