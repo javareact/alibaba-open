@@ -53,7 +53,7 @@ class OrderTest extends BaseTest
         $obj = new AlibabaClient;
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
-        $res = $obj->product->cpsMediaProductInfo(new CpsMediaProductInfoParams('579348351942'))->post(); //api 就是阿里巴巴文档中的
+        $res = $obj->product->cpsMediaProductInfo((new CpsMediaProductInfoParams('542833671651'))->setNeedCpsSuggestPrice(true)->setNeedIntelligentInfo(true))->post(); //api 就是阿里巴巴文档中的
         var_export($res);
         $this->assertStringContainsString('0', $res['code']);
     }
@@ -152,7 +152,7 @@ class OrderTest extends BaseTest
         $obj->setAppkey(getenv('AppKey'));
         $obj->setAppsecret(getenv('AppSecret'));
         $res = $obj->order->buyerOrderDetail((new OrderDetailParams('954134946027629634')))->get(); //api 就是阿里巴巴文档中的
-        var_export($res);
+        var_export($res['result']['guaranteesTerms']['assuranceInfo']);
         $this->assertSame($res['result']['baseInfo']['status'], 'waitsellersend');
     }
 

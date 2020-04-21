@@ -7,8 +7,8 @@ namespace JavaReact\AlibabaOpen\entity;
 class CpsMediaProductInfoParams extends BaseEntityParams
 {
     private $offerId;
-    private $needCpsSuggestPrice;
-    private $needIntelligentInfo;
+    private $needCpsSuggestPrice = true;//是否需要CPS建议价
+    private $needIntelligentInfo;//是否返回算法改写的信息，包括标题、图片和详情图片
 
     /**
      * CpsMediaProductInfoParams constructor.
