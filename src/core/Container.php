@@ -4,7 +4,7 @@ namespace JavaReact\AlibabaOpen\core;
 
 
 /**
- * Class Container
+ * Container
  * @package JavaReact\AlibabaOpen\core
  */
 class Container implements \ArrayAccess
@@ -41,7 +41,7 @@ class Container implements \ArrayAccess
      * @param mixed $offset
      * @return bool|void
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         // TODO: Implement offsetExists() method.
     }
@@ -50,7 +50,7 @@ class Container implements \ArrayAccess
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         if (isset($this->instances[$offset])) {
             return $this->instances[$offset];
@@ -66,7 +66,7 @@ class Container implements \ArrayAccess
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->values[$offset] = $value;
     }
@@ -74,7 +74,7 @@ class Container implements \ArrayAccess
     /**
      * @param mixed $offset
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
 
     }
@@ -97,7 +97,7 @@ class Container implements \ArrayAccess
 
     /**
      * 添加中间件
-     * @param $function
+     * @param        $function
      * @param string $name
      * @return array
      */
